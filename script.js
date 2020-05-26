@@ -1,4 +1,11 @@
+const resetButton = document.getElementById("reset");
+const colorButton = document.getElementById("colorButton");
+let colorType = "black";
 let gridNumber = '';
+let r = Math.floor(Math.random() * 256);
+let g = Math.floor(Math.random() * 256);
+let b = Math.floor(Math.random() * 256);
+let rgbColor = "rgb(" + r + "," + g + "," + b + ")";
 
 function createGrid(num){
     if (gridNumber == '') {
@@ -15,20 +22,30 @@ function createGrid(num){
         document.getElementById("container").appendChild(grid);
     }
 
-    // document.getElementById("container").setAttribute.style.cssText = 
-
-}
-
-function changeColor(e) {
-    e.target.style.backgroundColor = "black";
 }
 
 document.onload = createGrid();
+
+function resetGrid() {
+    gridSelect.forEach(grid => grid.style.backgroundColor = "white");
+    colorType = "black";
+}
+
+function changeColor(e) {
+    e.target.style.backgroundColor = colorType;
+}
+
 const gridSelect = document.querySelectorAll(".grid");
 
+gridSelect.forEach(grid => grid.addEventListener("mouseover", changeColor));
+resetButton.addEventListener("click", resetGrid);
+colorButton.addEventListener("click", function() {
+    let r = Math.floor(Math.random() * 256);
+    let g = Math.floor(Math.random() * 256);
+    let b = Math.floor(Math.random() * 256);
+    let rgbColor = "rgb(" + r + "," + g + "," + b + ")";
+    colorType = rgbColor;
+    changeColor;
+});
 
-gridSelect.forEach(grid => grid.addEventListener('mouseover', changeColor));
 
-// gridSelect.addEventListener("hover", function() {
-//     this.className = 'filledGrid';
-// });
