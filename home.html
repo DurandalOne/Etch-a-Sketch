@@ -10,9 +10,15 @@
     <body>
         <h1 id="heading">Etch-a-Sketch</h1>
 
+        <form id="gridSize">
+            <label for="numberGrid">Resize Grid:</label>
+            <input type="text" id="numberGrid">
+            <button id="submitButton" type="button">Go!</button>
+        </form>
+
         <div id="container"></div>
         <div id="bottomButtons">
-            <button id="reset">Reset</button>
+            <button id="reset">Clear Board</button>
             <button id="colorButton">Change Color</button>
         </div>
         <script src="script.js" async defer></script>
